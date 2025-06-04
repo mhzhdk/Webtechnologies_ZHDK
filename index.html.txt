@@ -1,0 +1,30 @@
+<!DOCTYPE html> **always added**
+<html lang="en"> **sets language**
+<head> **meta information, will not be displayed**
+    <meta charset="UTF-8">
+    <title>My First Website</title>
+    <style> ** CSS **
+        body {
+            font-family: Arial, sans-serif;
+            background-color:rgb(227, 233, 241);
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        .box {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(204, 230, 216, 0.1);
+        }
+    </style>
+</head>
+<body> ** visible part of the webpage **
+    <h1>heading</h1> **largest heading**
+    <div class="box"> **container**
+        <p>text paragraph</p>
+    </div>
+</body>
+</html>
