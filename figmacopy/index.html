@@ -1,0 +1,141 @@
+<!DOCTYPE html>           
+<html lang="en">         
+<head>                
+    <title>Figma_Copy</title>
+    <style> 
+        *{
+            font-family: Papyrus;
+        }
+        .card{
+            display: flex;
+            flex-direction: row;
+            gap: calc(100vw / 15);
+            background-color: blanchedalmond;
+            box-sizing: border-box;
+            padding: calc(100vw/15);
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+            height:100vh;
+        }
+        .content{
+            background-color: aqua;
+            display:flex;
+            flex-direction: column;
+            width: calc(100vw / 15*8);
+            height: 100%;
+            border-right-width: 5px;
+            border-right-color: brown;
+            align-items: center;
+        }
+        .addressant{
+            display:flex;
+            flex-direction: column;
+            width: calc(100vw/ 15*4);
+            height: 100%;
+            align-items: flex-start; /*puts at top*/
+            justify-content: space-between; /* justify content! not align content*/
+            box-sizing: border-box; /*or else overflows*/
+
+        }
+        .wrapper{
+            height:calc(100vh/10*3);
+            width:100%;
+            display:flex;
+            align-items: flex-start;
+            justify-content: right;
+            padding:0;
+        }
+        .wrapper img{
+            object-fit: cover;
+            height: 100%;
+            margin:0;
+        }
+        .address{
+            background-color: bisque;
+            height:calc(100vh/10*3);
+            width: 100%;
+            align-content: end;
+            text-align: center;
+        }
+
+        .rows{
+            height: calc(100vh/10*3);
+            margin-bottom: calc(100vh/10*0.5);
+            box-sizing: border-box;
+            width: calc(100vh/15*7);
+            
+        }
+
+        t.rows { /*every t tag that is inside class rows*/
+            margin:0;
+            padding:0;
+
+        }
+        
+
+        .content img{
+            width: calc(100vw / 15*8);
+            height: calc(100vh / 10*2);
+            object-fit: cover; /*overflows???*/
+
+        }
+        h3{
+            font-size: 1.3rem;
+            margin:0;
+            margin-top: 5px;
+            margin-bottom:5px;
+        }
+        t {
+            font-size: 0.8rem;
+            margin:0;
+            padding:0;
+        }
+        .heading {
+            height: calc(100vh/10*2);
+            width:100%;
+            background-color: rgb(36, 109, 109);
+        }
+        h1{
+            margin:0;
+            padding:0;
+        }
+
+    </style>
+</head>
+<body> 
+    <div class="card">
+        <div class="content">
+
+            <div class="heading">
+                <h1>Dear Mauselia</h1>
+                <h3>How much I miss you!</h3>
+            </div>
+            <div class="rows">
+                <t>It was a wonderful day, yesterday</t>
+                <t>I wish you could have seen the butterflies</t>
+                <t>Perhaps you'll come visit me once in a while</t>
+                <t>I miss you a lot and think of you often</t>
+                <t>Your blushing cheeks lighten up my day</t>
+                <t>Below attached is an image of my garden</t>
+                <t>With love</t>
+                <h3>Julietta</h3>
+            </div>
+            <img src="garden.jpg">
+
+        </div>
+
+        <div class="addressant">
+            <div class="wrapper">
+                 <img src="mark.png">
+            </div>
+            <div class="address">
+                <p>Mauselia Mimosa</p>
+                <p>Petunianstreet 33</p>
+                <p>Arizona, USA</p>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
