@@ -9,7 +9,7 @@
         .card{
             display: flex;
             flex-direction: row;
-            gap: calc(100vw / 15);
+            gap: calc((100vw / 15)-10px);
             background-color: blanchedalmond;
             box-sizing: border-box;
             padding: calc(100vw/15);
@@ -22,7 +22,7 @@
             flex-direction: column;
             width: calc(100vw / 15*8);
             height: 100%;
-            border-right-width: 5px;
+            border-right-width: 10px;
             border-right-color: brown;
             align-items: center;
             justify-content: space-between;    /*use justify only because it's column and not row. SWITCHED DIRECTION!*/
@@ -72,7 +72,10 @@
 
         }
         
-
+        .heading {
+            height: calc(100vh/10*2);
+            width:100%;
+        }
         .content img{
             width: calc(100vw / 15*8);
             height: calc(100vh / 10*2);
@@ -90,10 +93,7 @@
             margin:0;
             padding:0;
         }
-        .heading {
-            height: calc(100vh/10*2);
-            width:100%;
-        }
+        
         h1{
             margin:0;
             padding:0;
