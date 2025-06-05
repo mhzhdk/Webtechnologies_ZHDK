@@ -1,9 +1,3 @@
-<!DOCTYPE html>           
-<html lang="en">         
-<head>                
-    <title>Figma_Copy</title>
-    <script src="main.js" defer></script>
-    <style> 
         *{
             font-family: Papyrus;
         }
@@ -99,43 +93,3 @@
             margin:0;
             padding:0;
         }
-
-    </style>
-</head>
-<body> 
-    <div class="card">
-        <div class="content">
-
-            <div class="heading">
-                <h1>Dear Mauselia</h1>
-                <h3>How much I miss you!</h3>
-            </div>
-            <div class="rows">
-                <t>It was a wonderful day, yesterday</t>
-                <t>I wish you could have seen the butterflies</t>
-                <t>Perhaps you'll come visit me once in a while</t>
-                <t>I miss you a lot and think of you often</t>
-                <t>Your blushing cheeks lighten up my day</t>
-                <t>Below attached is an image of my garden</t>
-                <t>With love</t>
-                <h3>Julietta</h3>
-            </div>
-            <img src="garden.jpg">
-
-        </div>
-
-        <div class="addressant">
-            <div class="wrapper">
-                 <img src="mark.png">
-            </div>
-            <div class="address">
-                <p>Mauselia Mimosa</p>
-                <p>Petunianstreet 33</p>
-                <p>Arizona, USA</p>
-
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
