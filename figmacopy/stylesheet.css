@@ -1,10 +1,10 @@
-        *{
+*{
             font-family: Papyrus;
         }
         .card{
             display: flex;
             flex-direction: row;
-            gap: calc((100vw / 15)-10px);
+            gap: calc(100vw / 15);
             background-color: blanchedalmond;
             box-sizing: border-box;
             padding: calc(100vw/15);
@@ -17,7 +17,8 @@
             flex-direction: column;
             width: calc(100vw / 15*8);
             height: 100%;
-            border-right-width: 10px;
+            border-right-width: 1px; 
+            border-right-style: solid; /*NECESSARY or else no border will be drawn*/
             border-right-color: brown;
             align-items: center;
             justify-content: space-between;    /*use justify only because it's column and not row. SWITCHED DIRECTION!*/
@@ -75,7 +76,6 @@
             width: calc(100vw / 15*8);
             height: calc(100vh / 10*2);
             object-fit: cover; /*overflows???*/
-
         }
         h3{
             font-size: 1.3rem;
