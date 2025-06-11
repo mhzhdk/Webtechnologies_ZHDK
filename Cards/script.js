@@ -29,18 +29,30 @@ for (let i = 0; i < ingredientList.length; i++) {
     const name = ingredient.strIngredient1;
     if (!name) continue;
         if (!assignedColors[name]) {
-        assignedColors[name] = getRandomColor();
+        assignedColors[name] = getRandomColor(name);
         }
   }
   console.log(assignedColors)
   return assignedColors;
 }
 
-
+/* unused because it is not seeded
 function getRandomColor() {
     const hue = Math.floor(Math.random() * 360);
     return `hsl(${hue}, 70%, 60%)`; 
 }
+*/
+
+function getRandomColor(name) {
+  // Simple hash function: converts string to number
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = hash % 360;
+  return `hsl(${hue}, 70%, 60%)`; 
+}
+
 
 async function initializeColorLibrary() {
     colorLibrary = await getColorList(); 
