@@ -1,3 +1,12 @@
+async function fetchIMG(){
+  const inputVariable = document.getElementById("cocktailname").value.toLowerCase();
+  //cocktailname is on HTML the input text received
+  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputVariable}`);
+  const data = await response.json();
+  console.log(data);
+}
+
+
 let colorLibrary = {};
 
 async function getData(){
@@ -63,4 +72,5 @@ async function initializeColorLibrary() {
 
 initializeColorLibrary();  
 
-const cardtemplate = document.createElement('card');
+const container = document.createElement('container');
+

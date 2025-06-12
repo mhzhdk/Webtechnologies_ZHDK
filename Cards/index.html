@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="UTF-8">
-  <title>JavaScript</title>
+    <meta charset="UTF-8">
+    <title>Cocktail Card</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <p>Check the console for JavaScript output</p>
-  <script src="script.js"></script>
+    <div class="container">
+        <input type="text" id="cocktailname" placeholder="Enter cocktail name">
+        <button onclick="fetchIMG()"> Fetch </button><br>
+        <h1>cocktail_name</h1>
+        <img src="" id="IMGcocktail">
+        <div id="glass"> cocktail_container
+
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
