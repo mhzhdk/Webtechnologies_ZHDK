@@ -1,3 +1,11 @@
-#ingredients{
-    
+#glass{
+    height: 300px;
+    width: 100px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.container{
+
 }

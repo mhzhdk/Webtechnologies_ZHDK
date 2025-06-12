@@ -3,7 +3,21 @@ async function fetchIMG(){
   //cocktailname is on HTML the input text received
   const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputVariable}`);
   const data = await response.json();
-  console.log(data);
+  const cocktail = data.drinks; 
+    // const ingr1 = data.drinks.strIngredient1; // wrong because data.drinks is an array, not an object!
+    const ingr = data.drinks[0];   
+    console.log(ingr.strDrink)
+    document.querySelector(".majorCocktailName").textContent = ingr.strDrink;
+
+    const ingredients = []; 
+    for (let i = 1; i <= 15; i++) {
+    const ingredient = ingr[`strIngredient${i}`];
+    if (ingredient) { 
+    const color = colorLibrary[ingredient] || "black";
+    ingredients.push({ingredient, color}); }   }
+    console.log(ingredients) 
+    renderGlass(ingredients);
+    
 }
 
 
@@ -14,9 +28,9 @@ async function getData(){
     const data = await response.json(); 
     const cocktail = data.drinks; 
     // const ingr1 = data.drinks.strIngredient1; // wrong because data.drinks is an array, not an object!
-    
     const ingr = data.drinks[0];   
-    console.log(ingr.strIngredient1) 
+    console.log(ingr.strDrink)
+    document.querySelector(".majorCocktailName").textContent = ingr.strDrink;
     
     const ingredients = []; 
     for (let i = 1; i <= 15; i++) {
@@ -25,8 +39,10 @@ async function getData(){
     const color = colorLibrary[ingredient] || "black";
     ingredients.push({ingredient, color}); }   }
     console.log(ingredients) 
+    renderGlass(ingredients);
 } 
-    
+
+  
   
 async function getColorList(){
     const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
@@ -58,8 +74,10 @@ function getRandomColor(name) {
   for (let i = 0; i < name.length; i++) {
     hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
-  const hue = hash % 360;
-  return `hsl(${hue}, 70%, 60%)`; 
+const hue = Math.abs(hash) % 360;
+const saturation = 40 + (Math.abs(hash) % 20); // 40–60%
+const lightness = 75 + (Math.abs(hash) % 10); // 75–85%
+return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
 
@@ -72,5 +90,26 @@ async function initializeColorLibrary() {
 
 initializeColorLibrary();  
 
-const container = document.createElement('container');
+function renderGlass(ingredients) {
+  const glass = document.getElementById("glass");
+  glass.innerHTML = ""; // Clear previous content
+
+  const heightPercent = 100 / 15; 
+
+  for (let i = 0; i < 15; i++) {
+    const block = document.createElement("div");
+    block.style.height = `${heightPercent}%`;
+    block.style.width = "100%";
+    block.style.boxSizing = "border-box";
+
+    if (i < ingredients.length) {
+      block.style.backgroundColor = ingredients[i].color;
+      block.title = ingredients[i].ingredient; // show ingredient on hover
+    } else {
+      block.style.backgroundColor = "transparent";
+    }
+
+    glass.appendChild(block);
+  }
+}
 
