@@ -1,6 +1,17 @@
 // Frozen Daiquiri
 // Chocolate Monkey
 // Port Wine Flip
+// Corpse Reviver
+// Vodka Lemon (!)
+// Spritz Veneziano
+//Gin sling
+// Boxcar
+//Jitterbug
+// Almond Chocolate coffee
+// Oatmeal cookie
+// Berry Deadly
+// Figgy Thyme (!)
+// planter's punch
 
 async function fetchIMG(){
 
@@ -92,7 +103,7 @@ function renderGlass(ingredients) {
   const glass = document.getElementById("glass");
   glass.innerHTML = ""; // Clear previous content
 
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 7; i++) {
     const block = document.createElement("div");
     block.classList.add("DivIngr")
     const sideBlock = document.createElement("div");
