@@ -1,3 +1,5 @@
+// Frozen Daiquiri
+// Chocolate Monkey
 async function fetchIMG(){
   const inputVariable = document.getElementById("cocktailname").value.toLowerCase();
   //cocktailname is on HTML the input text received
@@ -13,7 +15,7 @@ async function fetchIMG(){
     for (let i = 1; i <= 15; i++) {
     const ingredient = ingr[`strIngredient${i}`];
     if (ingredient) { 
-    const color = colorLibrary[ingredient] || "black";
+    const color = colorLibrary[ingredient] || getRandomColor(ingredient);
     ingredients.push({ingredient, color}); }   }
     console.log(ingredients) 
     renderGlass(ingredients);
@@ -36,13 +38,13 @@ async function getData(){
     for (let i = 1; i <= 15; i++) {
     const ingredient = ingr[`strIngredient${i}`];
     if (ingredient) { 
-    const color = colorLibrary[ingredient] || "black";
+    const color = colorLibrary[ingredient] || getRandomColor(ingredient);
     ingredients.push({ingredient, color}); }   }
     console.log(ingredients) 
     renderGlass(ingredients);
 } 
 
-  
+ 
   
 async function getColorList(){
     const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
@@ -94,17 +96,16 @@ function renderGlass(ingredients) {
   const glass = document.getElementById("glass");
   glass.innerHTML = ""; // Clear previous content
 
-  const heightPercent = 100 / 15; 
 
-  for (let i = 0; i < 15; i++) {
-    const block = document.createElement("div");
-    block.style.height = `${heightPercent}%`;
-    block.style.width = "100%";
-    block.style.boxSizing = "border-box";
+  for (let i = 0; i < 8; i++) {
+    const block = document.createElement("divLi");
+    block.classList.add("ingredientBlock")
+  
 
     if (i < ingredients.length) {
       block.style.backgroundColor = ingredients[i].color;
       block.title = ingredients[i].ingredient; // show ingredient on hover
+      block.textContent = ingredients[i].ingredient;
     } else {
       block.style.backgroundColor = "transparent";
     }
