@@ -1,3 +1,7 @@
+html, body {
+  margin: 0;
+}
+
 .DivIngr{ 
     display:flex;
     height:100%;
@@ -39,43 +43,87 @@ overflow:hidden;
   flex: 1 0 50%;
 }
 
-
-top{
+.top{
+    height:10%;
+    width: 260px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    padding-top: 20px;
+    gap: 20px;
 }
 
 input{
-    margin:10px;
+    color:#8464ad;
+    height: 100%;
     margin-bottom: 0px;
-    padding:10px;
     border-radius: 20px;
-}
-button{
-    margin:10px;
-    width: 60%;
-    border-radius: 20px;
-    height:30px;
+    padding-left: 15px;
+    border:1px solid #bc5eae79;
+    box-sizing: border-box;
+    width:70%;
 }
 
+button{
+    color:#8464ad;
+    background-color: #e1d4f1;
+    background-image: none;
+    font-family:'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    position: relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #bc5eae79;;
+}
+
+.Search{
+    height:100%;
+}
+.RandomBut{
+    width: 60%;
+}
+
+button:after{ /*pseudo element > insert content/styling after creation of button*/
+    content:'';
+    position: absolute; /*always oriented relatively to the button*/
+    width:110%;
+    height:120%;
+    border-radius: 20px;
+    z-index: -1;
+    background-image: linear-gradient(to bottom right, #b487f0,  #e9b877) ; /* (direction, first color, second color)*/
+}
+
+button:hover{
+    color:#fbf7ff;
+    z-index: 1;
+}
+
+
 #glass{
-    height: 300px;
-    width: 250px;
-    border: 2px solid rgba(177, 185, 189, 0.345);
+    height:70%;
+    width: 230px;
+    border: 5px solid #ffffff;
     display: flex;
     flex-direction: column-reverse;
     border-radius: 60px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: aliceblue;
+    background-color: #edf8f8;
     overflow:hidden;
 
 }
 
 .majorCocktailName{
     font-size: x-large;
-    font-family: 'Segoe UI';
+    font-family:'Segoe UI';
+    padding-bottom: 20px;
+    margin:0;
+    color:#fbf7ff;
+    text-align: center;
 }
 
 .main{
@@ -83,23 +131,42 @@ button{
     width: 100vw;
     display:flex;
     align-items: center;
+    /*justify-content: center;*/
+    padding-top: 35px;
     flex-direction: column;
+    /*
+    background-image: url(uglier.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    */
+    background-image: linear-gradient(to bottom right, #d1caf7,  #9da0d8) ; 
+    box-sizing: border-box;
 }
 
-
-.container{
-    background-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    width:260px;
-    height: 65vh;
+.card{
+    height:80vh;
+    border: 3px solid #ffffff;
+    border-radius: 20px;
     display:flex;
     flex-direction: column;
-    border:2px rgb(225, 152, 152) solid;
+    align-items: center;
+    justify-content: center;
+    text-justify: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.623);
+}
+
+.container{
+    height:65%;
+    background-image: linear-gradient(to bottom right, #b487f0,  #a4e3e6) ; 
+    border-radius: 15px;
+    width:260px;
+    display:flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-justify: center;
     padding:20px;
-    padding-top: 0px;
-    padding-bottom: 40px;
-    margin:20px;
+    padding-top: 5px;
+    margin:15px;
 }

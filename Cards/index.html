@@ -6,13 +6,16 @@
 </head>
 <body>
     <div class="main">
-        <top>
-            <input type="text" id="cocktailname" placeholder="Enter cocktail name">
-            <button onclick="fetchIMG()"> Fetch </button><br>
-        </top>
-        <div class="container">
-            <h1 class="majorCocktailName"></h1>
-            <div id="glass"> </div>
+        <div class="card">
+            <div class="top">
+                <input type="text" id="cocktailname" placeholder="Cocktail name..."> 
+                <button class="Search" onclick="fetchInfo()"> Search </button><br>
+            </div> 
+            <div class="container">
+                <h1 class="majorCocktailName"></h1>
+                <div id="glass"> </div>
+            </div>
+            <button class="RandomBut" onclick="initializeColorLibrary()"> Randomize </button><br>
         </div>
     </div>
     <script src="script.js"></script>
