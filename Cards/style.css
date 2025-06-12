@@ -1,3 +1,31 @@
+BlockDiv{
+    color:rgba(86, 0, 80, 0.58);
+    width: 100%;
+}
+
+BlockDiv:hover{
+    color:rgb(7, 72, 72);
+    width: 50%;
+    transition: width 0.3s ease;
+}
+
+top{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    margin:10px;
+    margin-bottom: 0px;
+    padding:10px;
+    border-radius: 20px;
+}
+button{
+    margin:10px;
+
+}
+
 #glass{
     height: 300px;
     width: 200px;
@@ -9,6 +37,11 @@
     background-color: aliceblue;
     overflow:hidden;
 
+}
+
+.majorCocktailName{
+    font-size: x-large;
+    font-family: 'Segoe UI';
 }
 
 .main{

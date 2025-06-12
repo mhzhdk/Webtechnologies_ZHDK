@@ -1,5 +1,6 @@
 // Frozen Daiquiri
 // Chocolate Monkey
+// Port Wine Flip
 async function fetchIMG(){
   const inputVariable = document.getElementById("cocktailname").value.toLowerCase();
   //cocktailname is on HTML the input text received
@@ -98,7 +99,7 @@ function renderGlass(ingredients) {
 
 
   for (let i = 0; i < 8; i++) {
-    const block = document.createElement("divLi");
+    const block = document.createElement("BlockDiv");
     block.classList.add("ingredientBlock")
   
 
@@ -106,6 +107,9 @@ function renderGlass(ingredients) {
       block.style.backgroundColor = ingredients[i].color;
       block.title = ingredients[i].ingredient; // show ingredient on hover
       block.textContent = ingredients[i].ingredient;
+      block.style.fontFamily = "Segoe UI";
+      block.style.fontWeight = "bold";
+      //block.textContent is a string and thus can't be styled
     } else {
       block.style.backgroundColor = "transparent";
     }
