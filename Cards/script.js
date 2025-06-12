@@ -51,7 +51,6 @@ async function getData(){
   }
     renderGlass(ingredients);
 } 
-
  
   
 async function getColorList(){
@@ -88,19 +87,18 @@ async function initializeColorLibrary() {
     colorLibrary = await getColorList(); 
     await getData();
 }
-  
 
 function renderGlass(ingredients) {
   const glass = document.getElementById("glass");
   glass.innerHTML = ""; // Clear previous content
 
-
   for (let i = 0; i < 8; i++) {
-    const block = document.createElement("BlockDiv");
-    const sideBlock = document.createElement("DivSide");
-    const Fullblock = document.createElement("DivContain");
-    block.classList.add("ingredientBlock");
-  
+    const block = document.createElement("div");
+    block.classList.add("DivIngr")
+    const sideBlock = document.createElement("div");
+    sideBlock.classList.add("DivMeas")
+    const Fullblock = document.createElement("div");
+    Fullblock.classList.add("DivContain");
 
     if (i < ingredients.length) {
       block.style.backgroundColor = ingredients[i].color;
@@ -108,8 +106,7 @@ function renderGlass(ingredients) {
       block.textContent = ingredients[i].ingredient;
       sideBlock.textContent = ingredients[i].measurement;
       block.style.fontFamily = "Segoe UI";
-      block.style.fontWeight = "bold";
-      //block.textContent is a string and thus can't be styled
+      block.style.fontWeight = "bold"; //block.textContent is a string and thus can't be styled
     } else {
       block.style.backgroundColor = "transparent";
     }

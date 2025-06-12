@@ -1,37 +1,41 @@
 
-BlockDiv{
+.DivIngr{ 
     color:rgba(86, 0, 80, 0.58);
-    width:50%;
     text-align: center;
     text-justify: center;
     align-items: center;
     justify-content: center;
     padding:5px;
+    transition: flex 0.3s;
+    display:flex;
+    flex: 1 0 100%;
 }
 
-DivSide{
+.DivMeas{
+    display:flex;
     color:rgba(86, 0, 80, 0.58);
-    width:50%;
     text-align: center;
     text-justify: center;
     align-items: center;
     justify-content: center;
     padding:5px;
+    transition: flex 0.3s;
+    flex: 0 0 0%;
+
 }
 
-DivContain{
+.DivContain{
 width: 100%;
 display: flex;
 flex-direction: row;
+overflow:hidden;
+}
 
+.DivIngr:hover ~ .DivMeas,
+.DivIngr:hover {
+  flex: 1 0 50%;
 }
-/*
-BlockDiv:hover{
-    color:rgb(7, 72, 72);
-    width: 50%;
-    transition: width 0.3s ease;
-}
-    */
+
 
 top{
     background-color: aquamarine;
