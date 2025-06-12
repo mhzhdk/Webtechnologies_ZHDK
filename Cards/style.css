@@ -1,13 +1,37 @@
+
 BlockDiv{
     color:rgba(86, 0, 80, 0.58);
-    width: 100%;
+    width:50%;
+    text-align: center;
+    text-justify: center;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
 }
 
+DivSide{
+    color:rgba(86, 0, 80, 0.58);
+    width:50%;
+    text-align: center;
+    text-justify: center;
+    align-items: center;
+    justify-content: center;
+    padding:5px;
+}
+
+DivContain{
+width: 100%;
+display: flex;
+flex-direction: row;
+
+}
+/*
 BlockDiv:hover{
     color:rgb(7, 72, 72);
     width: 50%;
     transition: width 0.3s ease;
 }
+    */
 
 top{
     background-color: aquamarine;
@@ -67,16 +91,4 @@ button{
     padding:20px;
     padding-bottom: 40px;
     margin:20px;
-}
-
-.ingredientBlock{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    text-justify: center;
-    align-items: center;
-    justify-content: center;
-
 }

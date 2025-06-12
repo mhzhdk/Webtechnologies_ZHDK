@@ -1,25 +1,30 @@
 // Frozen Daiquiri
 // Chocolate Monkey
 // Port Wine Flip
+
 async function fetchIMG(){
+
   const inputVariable = document.getElementById("cocktailname").value.toLowerCase();
-  //cocktailname is on HTML the input text received
   const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${inputVariable}`);
   const data = await response.json();
-  const cocktail = data.drinks; 
-    // const ingr1 = data.drinks.strIngredient1; // wrong because data.drinks is an array, not an object!
-    const ingr = data.drinks[0];   
-    console.log(ingr.strDrink)
-    document.querySelector(".majorCocktailName").textContent = ingr.strDrink;
 
-    const ingredients = []; 
-    for (let i = 1; i <= 15; i++) {
+  const ingr = data.drinks[0]; 
+
+  console.log(ingr.strDrink);
+  console.log(ingr.strMeasure1);
+
+  document.querySelector(".majorCocktailName").textContent = ingr.strDrink;
+
+  const ingredients = []; 
+  for (let i = 1; i <= 15; i++) {
     const ingredient = ingr[`strIngredient${i}`];
-    if (ingredient) { 
-    const color = colorLibrary[ingredient] || getRandomColor(ingredient);
-    ingredients.push({ingredient, color}); }   }
-    console.log(ingredients) 
-    renderGlass(ingredients);
+    const measurement = ingr[`strMeasure${i}`];
+      if (ingredient && measurement) { 
+        const color = colorLibrary[ingredient] || getRandomColor(ingredient);
+        ingredients.push({ingredient, measurement, color}); 
+      }   
+  }
+  renderGlass(ingredients);
     
 }
 
@@ -37,11 +42,13 @@ async function getData(){
     
     const ingredients = []; 
     for (let i = 1; i <= 15; i++) {
-    const ingredient = ingr[`strIngredient${i}`];
-    if (ingredient) { 
-    const color = colorLibrary[ingredient] || getRandomColor(ingredient);
-    ingredients.push({ingredient, color}); }   }
-    console.log(ingredients) 
+      const ingredient = ingr[`strIngredient${i}`];
+      const measurement = ingr[`strMeasure${i}`];
+    if (ingredient && measurement) { 
+        const color = colorLibrary[ingredient] || getRandomColor(ingredient);
+        ingredients.push({ingredient, measurement, color}); 
+      }  
+  }
     renderGlass(ingredients);
 } 
 
@@ -64,13 +71,6 @@ for (let i = 0; i < ingredientList.length; i++) {
   return assignedColors;
 }
 
-/* unused because it is not seeded
-function getRandomColor() {
-    const hue = Math.floor(Math.random() * 360);
-    return `hsl(${hue}, 70%, 60%)`; 
-}
-*/
-
 function getRandomColor(name) {
   // Simple hash function: converts string to number
   let hash = 0;
@@ -88,10 +88,7 @@ async function initializeColorLibrary() {
     colorLibrary = await getColorList(); 
     await getData();
 }
-
-
-
-initializeColorLibrary();  
+  
 
 function renderGlass(ingredients) {
   const glass = document.getElementById("glass");
@@ -100,21 +97,26 @@ function renderGlass(ingredients) {
 
   for (let i = 0; i < 8; i++) {
     const block = document.createElement("BlockDiv");
-    block.classList.add("ingredientBlock")
+    const sideBlock = document.createElement("DivSide");
+    const Fullblock = document.createElement("DivContain");
+    block.classList.add("ingredientBlock");
   
 
     if (i < ingredients.length) {
       block.style.backgroundColor = ingredients[i].color;
       block.title = ingredients[i].ingredient; // show ingredient on hover
       block.textContent = ingredients[i].ingredient;
+      sideBlock.textContent = ingredients[i].measurement;
       block.style.fontFamily = "Segoe UI";
       block.style.fontWeight = "bold";
       //block.textContent is a string and thus can't be styled
     } else {
       block.style.backgroundColor = "transparent";
     }
-
-    glass.appendChild(block);
+    Fullblock.appendChild(block)
+    Fullblock.appendChild(sideBlock)
+    glass.appendChild(Fullblock);
   }
 }
 
+initializeColorLibrary();
