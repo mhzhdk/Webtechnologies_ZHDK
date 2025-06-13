@@ -155,8 +155,8 @@ block.style.fontWeight = "bold"; //block.textContent is a string and thus can't 
 
 Frozen Daiquiri
 Port Wine Flip
-Gin sling
-Boxcar  // has Gin
+    Gin Fizz
+    Boxcar  // has Gin
 Almond Chocolate coffee
 Figgy Thyme 
 planter's punch

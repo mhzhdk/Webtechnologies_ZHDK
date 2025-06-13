@@ -22,6 +22,10 @@ input{
     box-sizing: border-box;
     width:70%;
 }
+input:hover{
+    border:2px solid #a4e3e6;
+    color:#9db6b8;
+}
 
 button{
     color:#8464ad;
@@ -75,21 +79,19 @@ button:hover{
     width: 100vw;
     display:flex;
     align-items: center;
-    /*justify-content: center;*/
     padding-top: 35px;
     flex-direction: column;
-    /*
-    background-image: url(uglier.jpg);
+  
+    background-image: url(uglyblurred.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-    */
-    background-image: linear-gradient(to bottom right, #d1caf7,  #9da0d8) ; 
+    
+    /*background-image: linear-gradient(to bottom right, #d1caf7,  #9da0d8) ; */
     box-sizing: border-box;
 }
 
 .card{
     height:80vh;
-    border: 3px solid #ffffff;
     border-radius: 20px;
     display:flex;
     flex-direction: column;
@@ -138,10 +140,10 @@ button:hover{
     font-size: 14px;
     font-family: 'Segoe UI';
     font-weight: bold;
-    
 
-    transition: flex 0.3s;
+    transition: flex 0.3s; /*how long for flex property to change*/
     flex: 1 0 100%;
+    /*flex-grow: 0;     flex-shrink: 0;     flex-basis: 0%; (starting size)*/
 }
 
 .DivMeas{
@@ -151,7 +153,6 @@ button:hover{
     justify-content: center;
     align-items: center;
     text-justify: center;
-   
 
     transition: flex 0.3s;
     flex: 0 0 0%;
@@ -166,7 +167,13 @@ flex-direction: row;
 overflow:hidden;
 }
 
-.DivContain:hover .DivIngr,
+.DivContain:hover .DivIngr, /*when hover over this class apply to child*/
 .DivContain:hover .DivMeas {
-  flex: 1 0 50%;
+    flex: 1 0 50%; /*new basis is now 50% of DivContain*/
+
+  /*
+    0 1 auto	Shrinks when space is tight
+    1 0 100%	Takes full space, but can grow (good for responsive layout)
+    0 0 0%	Invisible and fixed size
+  */
 }
