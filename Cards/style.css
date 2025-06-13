@@ -77,27 +77,30 @@ button:hover{
 .main{
     height:100vh;
     width: 100vw;
+
     display:flex;
     align-items: center;
-    padding-top: 35px;
     flex-direction: column;
   
     background-image: url(uglyblurred.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     
-    /*background-image: linear-gradient(to bottom right, #d1caf7,  #9da0d8) ; */
+    padding-top: 35px;
     box-sizing: border-box;
 }
 
 .card{
     height:80vh;
+    min-height: 350px;
     border-radius: 20px;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-justify: center;
+    
+    box-sizing: border-box;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.623);
 }
@@ -112,6 +115,8 @@ button:hover{
     align-items: center;
     justify-content: center;
     text-justify: center;
+
+    box-sizing: border-box;
     padding:20px;
     padding-top: 5px;
     margin:15px;
@@ -142,7 +147,7 @@ button:hover{
     font-weight: bold;
 
     transition: flex 0.3s; /*how long for flex property to change*/
-    flex: 1 0 100%;
+    flex: 0 0 100%;
     /*flex-grow: 0;     flex-shrink: 0;     flex-basis: 0%; (starting size)*/
 }
 
@@ -170,10 +175,28 @@ overflow:hidden;
 .DivContain:hover .DivIngr, /*when hover over this class apply to child*/
 .DivContain:hover .DivMeas {
     flex: 1 0 50%; /*new basis is now 50% of DivContain*/
+}
 
-  /*
+/*
+    FLEX PROPERTY
     0 1 auto	Shrinks when space is tight
     1 0 100%	Takes full space, but can grow (good for responsive layout)
     0 0 0%	Invisible and fixed size
-  */
-}
+    
+    flex:1 = Let all the flexible items be the same length, regardless of its content:
+    flex-grow = A number specifying how much the item will grow relative to the rest of the flexible items
+    flex-shrink:2 = half the value of the other items
+    
+    flex-grow: How much a flex item can grow relative to others.
+    flex-shrink: How much it can shrink when there's not enough space.
+    flex-basis: The default size before growing or shrinking happens.
+    
+    example:
+    .one   { flex: 1 1 200px; }  /* grow:1, shrink:1, basis:200px 
+    .two   { flex: 2 1 200px; }  /* grow:2, shrink:1, basis:200px 
+    .three { flex: 1 1 200px; }  /* grow:1, shrink:1, basis:200px 
+    
+    Each starts with 200px (flex-basis) (container 600px)
+    if container change to 900px > .two gets 2x the extra space compared to .one and .three. 450px while others are 250px 
+    
+    */ 

@@ -1,0 +1,20 @@
+#content {
+  display: flex;
+  width: 500px;
+}
+
+#content div {
+  width: 200px;
+}
+
+.box {
+  flex-shrink: 1;
+}
+
+.box4 {
+  flex-shrink: 1.5;
+}
+
+.box5 {
+  flex-shrink: 2;
+}
