@@ -2,47 +2,6 @@ html, body {
   margin: 0;
 }
 
-.DivIngr{ 
-    display:flex;
-    height:100%;
-    color:rgba(86, 0, 80, 0.58);
-    justify-content: center;
-    align-items: center;
-    text-justify: center;
-    font-size: 14px;
-    
-
-    transition: flex 0.3s;
-    flex: 1 0 100%;
-}
-
-.DivMeas{
-    display:flex;
-    height:100%;
-    color:rgba(86, 0, 80, 0.58);
-    justify-content: center;
-    align-items: center;
-    text-justify: center;
-   
-
-    transition: flex 0.3s;
-    flex: 0 0 0%;
-
-}
-
-.DivContain{
-width: 100%;
-height: 200px;
-display: flex;
-flex-direction: row;
-overflow:hidden;
-}
-
-.DivContain:hover .DivIngr,
-.DivContain:hover .DivMeas {
-  flex: 1 0 50%;
-}
-
 .top{
     height:10%;
     width: 260px;
@@ -73,23 +32,23 @@ button{
     border-radius: 20px;
     height: 40px;
     width: 100px;
-    position: relative;
+    position: relative; /*necessary for button:after as reference*/
     display:flex;
     justify-content: center;
     align-items: center;
     border:1px solid #bc5eae79;;
 }
 
-.Search{
+.butHigh{
     height:100%;
 }
-.RandomBut{
+.butLow{
     width: 60%;
 }
 
 button:after{ /*pseudo element > insert content/styling after creation of button*/
-    content:'';
-    position: absolute; /*always oriented relatively to the button*/
+    content:''; /* :after or :before won't appear if content property is not set*/
+    position: absolute; /*always oriented fixed to closest ancestor with position:relative attribute*/
     width:110%;
     height:120%;
     border-radius: 20px;
@@ -100,21 +59,6 @@ button:after{ /*pseudo element > insert content/styling after creation of button
 button:hover{
     color:#fbf7ff;
     z-index: 1;
-}
-
-
-#glass{
-    height:70%;
-    width: 230px;
-    border: 5px solid #ffffff;
-    display: flex;
-    flex-direction: column-reverse;
-    border-radius: 60px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #edf8f8;
-    overflow:hidden;
-
 }
 
 .majorCocktailName{
@@ -169,4 +113,60 @@ button:hover{
     padding:20px;
     padding-top: 5px;
     margin:15px;
+}
+
+#glass{
+    height:70%;
+    width: 230px;
+    border: 5px solid #ffffff;
+    display: flex;
+    flex-direction: column-reverse;
+    border-radius: 60px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #edf8f8;
+    overflow:hidden;
+}
+
+.DivIngr{ 
+    display:flex;
+    height:100%;
+    color:rgba(86, 0, 80, 0.58);
+    justify-content: center;
+    align-items: center;
+    text-justify: center;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    
+
+    transition: flex 0.3s;
+    flex: 1 0 100%;
+}
+
+.DivMeas{
+    display:flex;
+    height:100%;
+    color:rgba(86, 0, 80, 0.58);
+    justify-content: center;
+    align-items: center;
+    text-justify: center;
+   
+
+    transition: flex 0.3s;
+    flex: 0 0 0%;
+
+}
+
+.DivContain{
+width: 100%;
+height: 200px;
+display: flex;
+flex-direction: row;
+overflow:hidden;
+}
+
+.DivContain:hover .DivIngr,
+.DivContain:hover .DivMeas {
+  flex: 1 0 50%;
 }

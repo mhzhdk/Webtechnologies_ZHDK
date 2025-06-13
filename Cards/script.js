@@ -46,6 +46,7 @@ async function getData(){
             }  
     }
     renderGlass(ingredients); 
+    console.log(ingredients);
 }
 
 // function to assign a color to every ingredient from list
@@ -76,16 +77,16 @@ function getRandomColor(name) {
         hash = name.charCodeAt(i) + ((hash << 5) - hash); // << = left shift operator (pattern to left) // charCodeAt()
         //appendage for hashing
     }
-    const hue = Math.abs(hash) % 360; 
-    const saturation = 40 + (Math.abs(hash) % 20); // 40–60%
+    const hue = Math.abs(hash) % 360;  //Math.abs makes a value be non-negative
+    const saturation = 40 + (Math.abs(hash) % 20); // % operator returns the remainder when dividing by 20 > end up with number 0 to 20
     const lightness = 75 + (Math.abs(hash) % 10); // 75–85%
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; //hsl
-}
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`; //`` = template literals, use for strings with variable input ${x + y}
+} 
 
 let colorLibrary = {};
 async function initializeColorLibrary() {
     colorLibrary = await getColorList(); //is filled with the returned values of assignedColors eg "7-Up": "hsl(57, 57%, 82%)", "Absolut Citron": "hsl(99, 59%, 84%)"
-    await getData();
+    await getData(); //renders the glass using colorLibrary (won't start unless library loaded)
     const searchbar = document.getElementById("cocktailname");
     searchbar.value = ""; // clearing a value! if it was html content it would be searchbar.innerHTML
 }
@@ -93,43 +94,35 @@ async function initializeColorLibrary() {
 function renderGlass(ingredients) { // works with the mainlist of the retrieved specific cocktail data
     const glass = document.getElementById("glass");
     glass.innerHTML = ""; // Clear previous content
+    for (let i = 0; i < 7; i++) { //happens for each individual ingredient (7 as limit instad of 10)
 
- 
+        // create the slice that is deposited in the glass
+        const block = document.createElement("div");
+        block.classList.add("DivIngr") //method to access DOM element and modify. compared object[key] is an object assignment
+        const sideBlock = document.createElement("div");
+        sideBlock.classList.add("DivMeas")
+        const Fullblock = document.createElement("div");
+        Fullblock.classList.add("DivContain");
 
-  for (let i = 0; i < 7; i++) {
-    // create the slice that is deposited in the glass
-    const block = document.createElement("div");
-    block.classList.add("DivIngr") //method to access DOM element and modify. compared object[key] is an object assignment
-    const sideBlock = document.createElement("div");
-    sideBlock.classList.add("DivMeas")
-    const Fullblock = document.createElement("div");
-    Fullblock.classList.add("DivContain");
+        if (i < ingredients.length) { //styling of the box itself
+            block.style.backgroundColor = ingredients[i].color; //accessing the color property of the ingredient
+            block.textContent = ingredients[i].ingredient; 
+            sideBlock.textContent = ingredients[i].measurement;
+        } else {
+            block.style.backgroundColor = "transparent";
+        }
 
-    if (i < ingredients.length) { //styling of the box itself
-      block.style.backgroundColor = ingredients[i].color; //accessing the color property of the ingredient
-      block.title = ingredients[i].ingredient; 
-      block.textContent = ingredients[i].ingredient;
-      sideBlock.textContent = ingredients[i].measurement;
-      block.style.fontFamily = "Segoe UI";
-      block.style.fontWeight = "bold"; //block.textContent is a string and thus can't be styled
-    } else {
-      block.style.backgroundColor = "transparent";
-
-    }
-
-    Fullblock.appendChild(block)
-
+    Fullblock.appendChild(block) 
     Fullblock.appendChild(sideBlock)
-
-    glass.appendChild(Fullblock);
-
+    glass.appendChild(Fullblock); //full single ingredient(+measurement) layer
   }
-
 }
 
- 
-
+// the only function that is being executed in the code (function referencing through execution)
 initializeColorLibrary();
+
+
+
 
 
 
@@ -151,24 +144,23 @@ hash = name.charCodeAt(i) + ((hash << 5) - hash);
 i=1; hash = 104(charcode of h) + (0 * 31) = 104 first iteration
 i=2; hash = 101(=charcode of e) + (104(=previous hash) * 31) = 101 + 3224 = 3325
 
+Additional unused styling:
+Fullblock.title = ingredients[i].ingredient; // title = tooltip = pop-up box on hover
+
+this can be styled here or in css 
+block.style.fontWeight = "bold"; //block.textContent is a string and thus can't be styled
 */
 
-// Frozen Daiquiri
-// Chocolate Monkey
-// Port Wine Flip
-// Corpse Reviver
-// Vodka Lemon (!)
-// Spritz Veneziano
-//Gin sling
-// Boxcar
-//Jitterbug
-// Almond Chocolate coffee
-// Oatmeal cookie
-// Berry Deadly
-// Figgy Thyme (!)
-// planter's punch
-//Garibaldi Negroni
-//White wine sangria
-// Vampiro (!)
-//stress (!)
-// Bloody Maria (!)
+/*  AESTHETIC DRINKS
+
+Frozen Daiquiri
+Port Wine Flip
+Gin sling
+Boxcar  // has Gin
+Almond Chocolate coffee
+Figgy Thyme 
+planter's punch
+stress
+
+
+*/
