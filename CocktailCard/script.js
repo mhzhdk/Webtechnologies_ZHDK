@@ -24,6 +24,7 @@ async function fetchInfo(){
                 // one object = 0: Object { ingredient: "Banana liqueur", measurement: "1 shot ", color: "hsl(14, 54%, 79%)" }
             }  
     }
+    console.log(ingredient);
     renderGlass(cocktailIngredients);  // call rendering and use the object of the list with the ingredient objects and their properties
 }
 
@@ -67,6 +68,7 @@ async function getColorList(){
                 // getRandomColor(name) returns a value = `hsl(${hue}, ${saturation}%, ${lightness}%)`
             }
   }
+  console.log(assignedColors);
   return assignedColors; // returns to colorLibrary (outside access)
 }
 
